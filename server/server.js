@@ -3,11 +3,9 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const debug = require('debug')('server-chat-app:server');
-const mongoose = require('mongoose');
-const http = require('http');
+const debug = require('debug')('chall-server:server');
 const app = require('./app');
-//const configureSocketIo = require('./configure-socket-io');
+const mongoose = require('mongoose');
 
 const PORT = Number(process.env.PORT, 10);
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -55,12 +53,7 @@ const onListening = (server) => {
 const initiate = () => {
   app.set('port', PORT);
 
-  const server = http.createServer(app);
-
-  // configureSocketIo(server);
-
-  server.listen(PORT);
-
+  const server = app.listen(PORT);
   server.on('error', (error) => onError(error));
   server.on('listening', () => onListening(server));
 };

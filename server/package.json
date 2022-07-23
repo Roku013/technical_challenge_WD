@@ -1,14 +1,15 @@
 {
-  "name": "server-chat-app",
+  "name": "chall-server",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "node ./server",
     "dev": "nodemon ./server -e js,hbs",
-    "dev:debug": "DEBUG=server-chat-app* npm run dev",
+    "dev:debug": "DEBUG=chall-server* npm run dev",
     "lint": "eslint ."
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
     "cors": "^2.8.5",
@@ -17,11 +18,9 @@
     "express": "^4.17.3",
     "express-session": "^1.17.2",
     "http-errors": "^2.0.0",
-    "imagekit": "^3.2.5",
     "mongoose": "^6.2.11",
     "morgan": "^1.10.0",
-    "serve-favicon": "^2.5.0",
-    "socket.io": "^4.5.1"
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^8.13.0",
@@ -31,7 +30,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "mocha": "^9.2.2",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.19",
     "prettier": "^2.6.2"
   }
 }

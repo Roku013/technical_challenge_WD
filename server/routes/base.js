@@ -2,18 +2,14 @@
 
 const express = require('express');
 const router = express.Router();
-//const phones = require('./../phones.json');
-const Phones = require('./../models/phone');
+const routeGuard = require('./../middleware/route-guard');
 
 router.get('/', (req, res, next) => {
-  Phones.find()
-    .then((phones) => res.json({ phones }))
-    .catch((err) => next(err));
+  res.json({ type: 'success', data: { title: 'Hello World' } });
 });
 
-router.get('/:id', (req, res, next) => {
-  const { id } = req.params;
-  res.json({ data: phones[id] });
+router.get('/private', routeGuard, (req, res, next) => {
+  res.json({});
 });
 
 module.exports = router;
